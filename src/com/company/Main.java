@@ -12,7 +12,7 @@ public class Main {
            //System.out.println(SacramentoUtil.countCrimeType(su.getCrimes(), "shoot"));
             SacramentoUtil.findBiggestGridByDistricts(su.getCrimes());
             System.out.println();
-           // SacramentoUtil.getStreets(su.getCrimes());
+            SacramentoUtil.getStreets(su.getCrimes());
 
 
         } catch (IOException e) {
