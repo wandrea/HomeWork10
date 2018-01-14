@@ -49,5 +49,20 @@ public class SacramentoUtil {
         }
     }
 
+    public static void printCSVFromSacramentoList(ArrayList<Sacramento> crimes, String pathName) {
+        //bufferedwriter-rel kiírtam a megadott fileba minden egyes objektumot a listából
+        //toCSV metódust használtam a CSV file formátum elõállítására
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(pathName))) {
+            //fejléc létrehozása
+            bw.write("cdatetime,address,district,beat,grid,crimedescr,ucr_ncic_code,latitude,longitude\n");
+            for (Sacramento sacramento : crimes) {
+                bw.write(sacramento.toCSV());
+                bw.newLine();
+            }
 
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

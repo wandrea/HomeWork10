@@ -116,6 +116,7 @@ public class Sacramento {
     }
 
     public String toCSV(){
+        //CSV file formátum megadása
         return  cDateTime + "," + address +"," + district +"," + beat + "," + grid +"," + crimeDescr +
                 "," + ucrNcicCode +"," + latitude +"," + longitude;
     }
