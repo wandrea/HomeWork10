@@ -95,4 +95,16 @@ public class SacramentoUtil {
         }
 
     }
+    public static int countCrimeType(ArrayList<Sacramento> sacramentos, String crimeType) {
+        //elkértem az objektumoktól a CrimeDescription-t, és megvizsgáltam tartalmazza e azt ami a bemenõ paraméterben megadtunk
+        //kiküszöbölve a kis-nagy betûs problémát, mindegyiket kisbetûsre változtattam
+        //majd ezeket az eseteket számoltam egy számlálóval
+        int count = 0;
+        for (Sacramento sacramento : sacramentos) {
+            if (sacramento.getCrimeDescr().toLowerCase().contains(crimeType.toLowerCase())){
+                count++;
+            }
+
+        }return count;
+    }
 }
