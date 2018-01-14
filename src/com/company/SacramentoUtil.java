@@ -65,4 +65,23 @@ public class SacramentoUtil {
             e.printStackTrace();
         }
     }
+
+    public static void findBiggestGridByDistricts(ArrayList<Sacramento> sacramentos) {
+        //létrehoztam egy HashMapet, amelybe kerülnek majd a feltételnek megfelelõ sacramento objektumok.
+       // megvizsgálom, hogy van e map-ben az éppen aktuális sacramento objektum district értékének megfelelõ objektum,
+        // ha nincs akkor belerakom, ha van és nagyobb az aktuális objektum grid értéke, akkor belerakom(felülírom az elõzõt).
+        //mappen végig iterálva kiíratom az objektumokat.
+        HashMap<Integer, Sacramento> map = new HashMap<>();
+        for (Sacramento sacramento : sacramentos) {
+            Sacramento s = map.get(sacramento.getDistrict());
+            if (s == null) {
+                map.put(sacramento.getDistrict(), sacramento);
+            } else if (sacramento.getGrid() > s.getGrid()) {
+                map.put(sacramento.getDistrict(), sacramento);
+            }
+        }
+        for (Map.Entry<Integer, Sacramento> entry : map.entrySet()) {
+            System.out.println(entry.getValue().toString());
+        }
+    }
 }
